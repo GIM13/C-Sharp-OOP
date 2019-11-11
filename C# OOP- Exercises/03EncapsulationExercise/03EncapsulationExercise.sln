@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29430.225
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01ClassBoxData", "01ClassBoxData\01ClassBoxData.csproj", "{0831D989-A185-4522-9229-AE172467B4E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01ClassBoxData", "01ClassBoxData\01ClassBoxData.csproj", "{0831D989-A185-4522-9229-AE172467B4E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalFarm", "02AnimalFarm\AnimalFarm\AnimalFarm.csproj", "{B36ADECC-E784-41CF-BE30-D090BEE3A579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03ShoppingSpree", "03ShoppingSpree\03ShoppingSpree.csproj", "{A03251E8-45D9-4327-BD42-FCCC6C432969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{0831D989-A185-4522-9229-AE172467B4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0831D989-A185-4522-9229-AE172467B4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0831D989-A185-4522-9229-AE172467B4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36ADECC-E784-41CF-BE30-D090BEE3A579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36ADECC-E784-41CF-BE30-D090BEE3A579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36ADECC-E784-41CF-BE30-D090BEE3A579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36ADECC-E784-41CF-BE30-D090BEE3A579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03251E8-45D9-4327-BD42-FCCC6C432969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03251E8-45D9-4327-BD42-FCCC6C432969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03251E8-45D9-4327-BD42-FCCC6C432969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03251E8-45D9-4327-BD42-FCCC6C432969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
