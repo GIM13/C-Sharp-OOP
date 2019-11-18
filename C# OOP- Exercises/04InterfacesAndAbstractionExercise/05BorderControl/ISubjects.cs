@@ -2,6 +2,6 @@
 {
     public interface ISubjects
     {
-        public long Id { get; } 
+        public string Id { get; } 
     }
 }

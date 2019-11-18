@@ -2,7 +2,7 @@
 {
     public class Robot : ISubjects
     {
-        public Robot(string model, long id)
+        public Robot(string model, string id)
         {
             Model = model;
             Id = id;
@@ -10,6 +10,6 @@
 
         public string Model { get; set; }
 
-        public long Id { get; }
+        public string Id { get; }
     }
 }

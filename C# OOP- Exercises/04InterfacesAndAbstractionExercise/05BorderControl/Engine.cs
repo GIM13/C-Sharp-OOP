@@ -18,14 +18,14 @@ namespace _05BorderControl
                 {
                     string name = command[0];
                     int age = int.Parse(command[1]);
-                    long id  = long.Parse(command[2]);
+                    string id = command[2];
 
-                    subjects.Add(new Citizen(name,age,id));
+                    subjects.Add(new Citizen(name, age, id));
                 }
                 else if (command.Count() == 2)
                 {
                     string model = command[0];
-                    long id = long.Parse(command[1]);
+                    string id = command[1];
 
                     subjects.Add(new Robot(model, id));
                 }
@@ -35,18 +35,11 @@ namespace _05BorderControl
 
             string fakeIds = Console.ReadLine();
 
-            int count = fakeIds.Length;
-
-            if (count > 0)
+            foreach (var subject in subjects)
             {
-                foreach (var subject in subjects)
+                if (subject.Id.EndsWith(fakeIds))
                 {
-                    double last = subject.Id % Math.Pow(10, count);
-
-                    if (last == long.Parse(fakeIds))
-                    {
-                        Console.WriteLine(subject.Id);
-                    }
+                    Console.WriteLine(subject.Id);
                 }
             }
         }

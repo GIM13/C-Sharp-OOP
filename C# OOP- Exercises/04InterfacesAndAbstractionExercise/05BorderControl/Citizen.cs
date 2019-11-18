@@ -2,7 +2,7 @@
 {
     public class Citizen : ISubjects
     {
-        public Citizen(string name, int age, long id)
+        public Citizen(string name, int age, string id)
         {
             Name = name;
             Age = age;
@@ -13,6 +13,6 @@
 
         public int Age { get; set; }
 
-        public long Id { get ; }
+        public string Id { get ; }
     }
 }
