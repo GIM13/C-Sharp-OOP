@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01DefineAnInterfaceIPerson"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08MilitaryElite", "08MilitaryElite\08MilitaryElite.csproj", "{F21BF6F8-46AC-4FF5-AAE5-48DC10DE4982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03Ferrari", "03Ferrari\03Ferrari.csproj", "{4EEEAAD6-4226-497B-8E02-0A3BAFE98D3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03Ferrari", "03Ferrari\03Ferrari.csproj", "{4EEEAAD6-4226-497B-8E02-0A3BAFE98D3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04Telephony", "04Telephony\04Telephony.csproj", "{664D8BE5-B4AC-4360-83BD-52BE8FC8377F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04Telephony", "04Telephony\04Telephony.csproj", "{664D8BE5-B4AC-4360-83BD-52BE8FC8377F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05BorderControl", "05BorderControl\05BorderControl.csproj", "{09CF69B2-65D3-467B-8291-79E0A1D047FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{664D8BE5-B4AC-4360-83BD-52BE8FC8377F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{664D8BE5-B4AC-4360-83BD-52BE8FC8377F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{664D8BE5-B4AC-4360-83BD-52BE8FC8377F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09CF69B2-65D3-467B-8291-79E0A1D047FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CF69B2-65D3-467B-8291-79E0A1D047FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CF69B2-65D3-467B-8291-79E0A1D047FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CF69B2-65D3-467B-8291-79E0A1D047FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,4 +6,12 @@
     <RootNamespace>_01DefineAnInterfaceIPerson</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="05BorderControl\05BorderControl.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="05BorderControl\bin\Debug\netcoreapp3.1\" />
+  </ItemGroup>
+
 </Project>
