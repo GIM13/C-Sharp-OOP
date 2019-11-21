@@ -8,40 +8,48 @@ namespace _05BorderControl
     {
         public static void Start()
         {
+            int num = int.Parse(Console.ReadLine());
+
             var command = Console.ReadLine().Split();
 
-            var subjects = new List<ISubjects>();
+            var buyers = new List<IBuyer>();
 
-            while (command[0] != "End")
+            for (int i = 0; i < num ; i++)
             {
-                if (command.Count() == 3)
-                {
-                    string name = command[0];
-                    int age = int.Parse(command[1]);
-                    string id = command[2];
+                string name = command[0];
+                int age = int.Parse(command[1]);
+                string idOrGroup = command[2];
 
-                    subjects.Add(new Citizen(name, age, id));
+                if (command.Length == 4)
+                {
+                    string birthdate = command[3];
+
+                    buyers.Add(new Citizen(name, age, idOrGroup,birthdate));
                 }
-                else if (command.Count() == 2)
+                else
                 {
-                    string model = command[0];
-                    string id = command[1];
-
-                    subjects.Add(new Robot(model, id));
+                    buyers.Add(new Rebel(name, age, idOrGroup));
                 }
 
                 command = Console.ReadLine().Split();
             }
 
-            string fakeIds = Console.ReadLine();
-
-            foreach (var subject in subjects)
+            while (command[0] != "End")
             {
-                if (subject.Id.EndsWith(fakeIds))
+                foreach (var buyer in buyers)
                 {
-                    Console.WriteLine(subject.Id);
+                    if (buyer.Name == command[0])
+                    {
+                        buyer.BuyFood();
+                    }
                 }
+
+                command = Console.ReadLine().Split();
             }
+
+            int sumFood = buyers.Sum(x => x.Food);
+
+            Console.WriteLine(sumFood);
         }
     }
 }

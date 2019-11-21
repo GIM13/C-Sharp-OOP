@@ -1,18 +1,28 @@
 ﻿namespace _05BorderControl
 {
-    public class Citizen : ISubjects
+    public class Citizen : ISubjects, IAnimal, IBuyer
     {
-        public Citizen(string name, int age, string id)
+        public Citizen(string name, int age, string id, string birthdate)
         {
             Name = name;
             Age = age;
             Id = id;
+            Birthdate = birthdate;
         }
 
-        public string Name { get; set; }
+        public string Name { get;  }
 
-        public int Age { get; set; }
+        public int Age { get; }
 
         public string Id { get ; }
+
+        public string Birthdate { get; }
+
+        public int Food { get; private set; }
+
+        public void BuyFood()
+        {
+             Food += 10;
+        }
     }
 }

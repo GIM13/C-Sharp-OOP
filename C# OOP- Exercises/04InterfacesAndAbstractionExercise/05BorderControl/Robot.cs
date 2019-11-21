@@ -8,7 +8,7 @@
             Id = id;
         }
 
-        public string Model { get; set; }
+        public string Model { get; }
 
         public string Id { get; }
     }
