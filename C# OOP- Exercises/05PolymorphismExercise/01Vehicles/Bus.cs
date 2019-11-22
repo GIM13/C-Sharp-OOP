@@ -37,7 +37,7 @@ namespace _01Vehicles
 
         public void Drive(double distance, bool airConditioning)
         {
-            double distanceConsumption = 0;
+            double distanceConsumption;
 
             if (airConditioning == true)
             {
