@@ -74,13 +74,15 @@ namespace _01Vehicles
             }
             else
             {
-                fuelQuantity += liters * leakage;
+                fuelQuantity +=  liters * leakage;
             }
         }
 
         public override string ToString()
         {
-            return $"Truck: {FuelQuantity:f2}";
+            var result = Math.Round(FuelQuantity, 2,MidpointRounding.AwayFromZero);
+
+            return $"Truck: {result:f2}";
         }
     }
 }

@@ -78,7 +78,7 @@ namespace _01Vehicles
 
         public override string ToString()
         {
-            return $"Bus: {FuelQuantity:f2}";
+            return $"Bus: {Math.Round(FuelQuantity, 2):f2}";
         }
     }
 }

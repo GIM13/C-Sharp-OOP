@@ -53,11 +53,11 @@ namespace _01Vehicles
                 FuelQuantity -= distanceConsumption;
 
                 Console.WriteLine($"Car travelled {distance} km");
-            }
+            }                       
             else
             {
                 Console.WriteLine("Car needs refueling");
-            }
+            }                   
         }
 
         public void Refueled(double liters)
@@ -65,11 +65,11 @@ namespace _01Vehicles
             if (liters + fuelQuantity > TankCapacity)
             {
                 Console.WriteLine($"Cannot fit {liters} fuel in the tank");
-            }
+            }                     
             else if (liters <= 0)
             {
                 Console.WriteLine("Fuel must be a positive number");
-            }
+            }                      
             else
             {
                 fuelQuantity += liters;
@@ -78,7 +78,7 @@ namespace _01Vehicles
 
         public override string ToString()
         {
-            return $"Car: {FuelQuantity:f2}";
+            return $"Car: {Math.Round(FuelQuantity, 2):f2}";
         }
     }
 }
