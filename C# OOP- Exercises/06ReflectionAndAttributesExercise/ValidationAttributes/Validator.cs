@@ -1,12 +1,34 @@
-﻿using System;
+﻿using System.Linq;
+using System.Reflection;
 
 namespace ValidationAttributes
 {
-    internal class Validator
+    public static class Validator
     {
-        internal static bool IsValid(Person person)
+        public static bool IsValid(Person person)
         {
-            throw new NotImplementedException();
+            PropertyInfo[] objPropertues = person.GetType()
+                .GetProperties();
+
+            foreach (var objPropertue in objPropertues)
+            {
+                var propAttributes = objPropertue
+                    .GetCustomAttributes()
+                    .Where(x => x is MyValidationAttribute)
+                    .Cast<MyValidationAttribute>();
+
+                foreach (var propAttribute in propAttributes)
+                {
+                    bool result = propAttribute.IsValid(objPropertue.GetValue(person));
+
+                    if (!result)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }

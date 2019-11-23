@@ -1,14 +1,17 @@
 ﻿namespace ValidationAttributes
 {
-    internal class Person
+    public class Person
     {
-        private object p;
-        private int v;
-
-        public Person(object p, int v)
+        public Person(string fullName , int age)
         {
-            this.p = p;
-            this.v = v;
+            FullName = fullName;
+            Age = age;
         }
+
+        [MyRequired]
+        public string FullName { get; set; } 
+
+        [MyRange(12,90)]
+        public int Age { get; set; }
     }
 }

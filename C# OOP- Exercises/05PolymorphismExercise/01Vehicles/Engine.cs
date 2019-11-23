@@ -40,39 +40,15 @@ namespace _01Vehicles
 
                 if (action == "Drive")
                 {
-                    try
-                    {
-                        vehicles[vehicle].Drive(value, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Drive   " + ex);
-                        throw;
-                    }
+                    vehicles[vehicle].Drive(value, true);
                 }
                 else if (action == "Refuel")
                 {
-                    try
-                    {
-                        vehicles[vehicle].Refueled(value);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Refuel   " + ex);
-                        throw;
-                    }
+                    vehicles[vehicle].Refueled(value);
                 }
                 else if (action == "DriveEmpty")
                 {
-                    try
-                    {
-                        vehicles[vehicle].Drive(value, false);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("DriveEmpty   " + ex);
-                        throw;
-                    }
+                    vehicles[vehicle].Drive(value, false);
                 }
             }
 

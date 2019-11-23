@@ -4,7 +4,7 @@ namespace ValidationAttributes
 {
     public class StartUp
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var person = new Person(null, -1);
 
