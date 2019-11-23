@@ -80,9 +80,7 @@ namespace _01Vehicles
 
         public override string ToString()
         {
-            var result = Math.Round(FuelQuantity, 2,MidpointRounding.AwayFromZero);
-
-            return $"Truck: {result:f2}";
+            return $"Truck: {FuelQuantity:f2}";
         }
     }
 }
