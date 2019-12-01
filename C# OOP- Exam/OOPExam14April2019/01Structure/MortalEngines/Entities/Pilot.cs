@@ -6,7 +6,12 @@ namespace MortalEngines.Entities
 {
     public class Pilot : IPilot
     {
-        private string name;
+        private readonly string name;
+
+        public Pilot(string name)
+        {
+            Name = name;
+        }
 
         public List<IMachine> Machines { get; set; }
 

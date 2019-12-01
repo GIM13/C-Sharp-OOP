@@ -7,7 +7,6 @@ namespace MortalEngines.Entities
     public abstract class BaseMachine : IMachine
     {
         private IPilot pilot;
-        private string name;
 
         public BaseMachine(string name, double attackPoints, double defensePoints, double healthPoints)
         {

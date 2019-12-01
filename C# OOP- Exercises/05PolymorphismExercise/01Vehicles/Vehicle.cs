@@ -18,17 +18,13 @@ namespace _01Vehicles
             get => fuelQuantity;
             set
             {
-                if (value > TankCapacity)
+                if (value <= TankCapacity)
                 {
-                    Console.WriteLine($"Cannot fit {value} fuel in the tank");
+                    fuelQuantity = value;
                 }
                 else if (value <= 0)
                 {
                     Console.WriteLine("Fuel must be a positive number");
-                }
-                else
-                {
-                    fuelQuantity = value;
                 }
             }
         }
