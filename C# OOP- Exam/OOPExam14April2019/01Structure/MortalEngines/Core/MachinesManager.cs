@@ -9,6 +9,13 @@
     {
         private List<Pilot> pilots = new List<Pilot>();
         private List<BaseMachine> machines = new List<BaseMachine>();
+        private Dictionary<BaseMachine, Pilot> pilotMachine = new Dictionary<BaseMachine, Pilot>();
+
+        public List<Pilot> Pilots { get => pilots; set => pilots = value; }
+
+        public List<BaseMachine> Machines { get => machines; set => machines = value; }
+
+        public Dictionary<BaseMachine, Pilot> PilotMachine { get => pilotMachine; set => pilotMachine = value; }
 
         public string HirePilot(string name)
         {
@@ -34,9 +41,11 @@
             {
                 double healthPoints = 100;
 
-                machines.Add(new Tank(name, attackPoints, defensePoints, healthPoints));
+                var tank = new Tank(name, attackPoints, defensePoints, healthPoints);
 
-                return $"Tank {name} manufactured - attack: {attackPoints}; defense: {defensePoints}";
+                machines.Add(tank);
+
+                return $"Tank {name} manufactured - attack: {tank.AttackPoints:f2}; defense: {tank.DefensePoints:f2}";
             }
         }
 
@@ -50,26 +59,70 @@
             {
                 double healthPoints = 200;
 
-                machines.Add(new Fighter(name, attackPoints, defensePoints, healthPoints));
+                var fighter = new Fighter(name, attackPoints, defensePoints, healthPoints);
 
-                return $"Fighter {name} manufactured - attack: {attackPoints}; defense: {defensePoints}; aggressive: ON";
+                machines.Add(fighter);
+
+                return $"Fighter {name} manufactured - attack: {fighter.AttackPoints:f2}; defense: {fighter.DefensePoints:f2}; aggressive: ON";
             }
         }
 
         public string EngageMachine(string selectedPilotName, string selectedMachineName)
         {
-            throw new System.NotImplementedException();
+            if (!pilots.Contains(pilots.FirstOrDefault(x => x.Name == selectedPilotName)))
+            {
+                return $"Pilot {selectedPilotName} could not be found";
+            }
+            else if (!machines.Contains(machines.FirstOrDefault(x => x.Name == selectedMachineName)))
+            {
+                return $"Machine {selectedMachineName} could not be found";
+            }
+            else if (pilotMachine.ContainsKey(machines.FirstOrDefault(x => x.Name == selectedMachineName)))
+            {
+                return $"Machine {selectedMachineName} is already occupied";
+            }
+            else 
+            {
+                pilotMachine.Add(machines.FirstOrDefault(x => x.Name == selectedMachineName), pilots.FirstOrDefault(x => x.Name == selectedPilotName));
+
+                return $"Pilot {selectedPilotName} engaged machine {selectedMachineName}";
+            }
         }
 
         public string AttackMachines(string attackingMachineName, string defendingMachineName)
         {
-            throw new System.NotImplementedException();
+            BaseMachine attackingMachine = machines
+                .FirstOrDefault(x => x.Name == attackingMachineName);
+            BaseMachine defendingMachine = machines
+                .FirstOrDefault(x => x.Name == defendingMachineName);
+
+            if (!pilotMachine.ContainsKey(attackingMachine))
+            {
+                return $"Machine {attackingMachineName} could not be found";
+            }
+            else if (!pilotMachine.ContainsKey(defendingMachine))
+            {
+                return $"Machine {defendingMachineName} could not be found";
+            }
+            else if (attackingMachine.HealthPoints <= 0)
+            {
+                return $"Dead machine {attackingMachineName} cannot attack or be attacked";
+            }
+            else if (defendingMachine.HealthPoints <= 0)
+            {
+                return $"Dead machine {defendingMachineName} cannot attack or be attacked";
+            }
+            else
+            {
+                attackingMachine.Attack(defendingMachine);
+
+                return $"Machine {defendingMachineName} was attacked by machine {attackingMachineName} - current health: {defendingMachine.HealthPoints:f2}";
+            }
         }
 
         public string PilotReport(string pilotReporting)
         {
             return pilots.FirstOrDefault(x => x.Name == pilotReporting).Report();
-
         }
 
         public string MachineReport(string machineName)

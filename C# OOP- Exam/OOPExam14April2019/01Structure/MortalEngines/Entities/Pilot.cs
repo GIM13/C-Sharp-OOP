@@ -6,7 +6,7 @@ namespace MortalEngines.Entities
 {
     public class Pilot : IPilot
     {
-        private readonly string name;
+        private  string name;
 
         public Pilot(string name)
         {
@@ -15,7 +15,19 @@ namespace MortalEngines.Entities
 
         public List<IMachine> Machines { get; set; }
 
-        public string Name { get; }
+        public string Name 
+        { 
+            get => name;
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("Pilot name cannot be null or empty string.");
+                }
+
+                name = value;
+            }
+        }
 
         public void AddMachine(IMachine machine)
         {

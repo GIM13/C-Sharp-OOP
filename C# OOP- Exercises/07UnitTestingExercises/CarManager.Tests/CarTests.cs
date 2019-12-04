@@ -42,6 +42,7 @@ namespace Tests
         }
 
         [TestCase(-10)]
+        [TestCase(0)]
         public void CheckTheExceptionForNegativeOnRefuel(double fuelToRefuel)
         {
             Car car = new Car("volvo", "S80", 20, 60);

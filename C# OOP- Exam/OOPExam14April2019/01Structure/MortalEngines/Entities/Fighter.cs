@@ -5,35 +5,31 @@ namespace MortalEngines.Entities
 {
     public class Fighter : BaseMachine, IFighter
     {
-        private double healthPoints = 200;
-        private double attackPoints;
-        private double defensePoints;
-        private bool aggressiveMode;
-
         public Fighter(string name, double attackPoints, double defensePoints, double healthPoints)
             : base(name,attackPoints,defensePoints,healthPoints)
         {
+            this.ToggleAggressiveMode();
         }
 
         public bool AggressiveMode { get; set; } = true;
 
-        public void ToggleAggressiveMode(string command)
+        public void ToggleAggressiveMode()
         {
-            if (command == "false -> true")
+            if (AggressiveMode == true)
             {
-                attackPoints += 50;
+                AttackPoints += 50;
 
-                defensePoints -= 25;
+                DefensePoints -= 25;
 
-                aggressiveMode = true;
+                AggressiveMode = true;
             }
-            else if (command == "true -> false ")
+            else if (AggressiveMode == false)
             {
-                attackPoints -= 50;
+                AttackPoints -= 50;
 
-                defensePoints += 25;
+                DefensePoints += 25;
 
-                aggressiveMode = false;
+                AggressiveMode = false;
             }
         }
 

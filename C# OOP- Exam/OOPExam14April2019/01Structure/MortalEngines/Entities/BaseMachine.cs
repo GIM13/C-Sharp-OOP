@@ -14,13 +14,15 @@ namespace MortalEngines.Entities
             AttackPoints = attackPoints;
             DefensePoints = defensePoints;
             HealthPoints = healthPoints;
-        }
 
-        public string Name { get; }
+            Targets = new List<string>();
+    }
 
-        public double AttackPoints { get; }
+    public string Name { get; }
 
-        public double DefensePoints { get; }
+        public double AttackPoints { get; protected set; }
+
+        public double DefensePoints { get; protected set; }
 
         public double HealthPoints { get;  set; }
 
@@ -33,7 +35,7 @@ namespace MortalEngines.Entities
             }
         }
 
-        public IList<string> Targets { get; }
+        public IList<string> Targets { get; private set; }
 
         public void Attack(IMachine target)
         {
@@ -55,7 +57,7 @@ namespace MortalEngines.Entities
         public override string ToString()
         {
             var result = $"- {Name}" + Environment.NewLine +
-                         $" *Type: { this.GetType()}" + Environment.NewLine +
+                         $" *Type: { this.GetType().Name}" + Environment.NewLine +
                          $" *Health: {HealthPoints}" + Environment.NewLine +
                          $" *Attack: {AttackPoints}" + Environment.NewLine +
                          $" *Defense: {DefensePoints}" + Environment.NewLine +
