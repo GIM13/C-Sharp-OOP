@@ -4,6 +4,6 @@
     {
         bool DefenseMode { get; }
 
-        void ToggleDefenseMode(string command);
+        void ToggleDefenseMode();
     }
 }

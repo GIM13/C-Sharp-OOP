@@ -5,33 +5,32 @@ namespace MortalEngines.Entities
 {
     public class Tank : BaseMachine, ITank
     {
-        private double healthPoints = 100;
-
         public Tank(string name, double attackPoints, double defensePoints, double healthPoints)
             : base(name, attackPoints, defensePoints, healthPoints)
         {
+            this.ToggleDefenseMode();
         }
 
-        public bool DefenseMode { get; } = true;
+        public bool DefenseMode { get; set; } = true;
 
-        public void ToggleDefenseMode(string command)
+        public void ToggleDefenseMode()
         {
-           // if (command == "false -> true")
-           // {
-           //     AttackPoints -= 40;
-           //
-           //     DefensePoints += 30;
-           //
-           //    // DefenseMode = true;
-           // }
-           // else if (command == "true -> false ")
-           // {
-           //     AttackPoints += 40;
-           //
-           //     DefensePoints -= 30;
-           //
-           //    // DefenseMode = false;
-           // }
+            if (DefenseMode == true)
+            {
+                AttackPoints -= 40;
+
+                DefensePoints += 30;
+
+                DefenseMode = true;
+            }
+            else if (DefenseMode == false)
+            {
+                AttackPoints += 40;
+
+                DefensePoints -= 30;
+
+                DefenseMode = false;
+            }
         }
 
         public override string ToString()

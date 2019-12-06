@@ -4,6 +4,6 @@
     {
         bool AggressiveMode { get;  }
 
-        void ToggleAggressiveMode(string command);
+        void ToggleAggressiveMode();
     }
 }
