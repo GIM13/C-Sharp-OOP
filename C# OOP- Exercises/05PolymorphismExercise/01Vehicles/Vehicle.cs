@@ -82,7 +82,7 @@ namespace _01Vehicles
         {
             double result = Math.Round(FuelQuantity, 2);
 
-            return $"{GetType().Name}: {result:f2}";
+            return $"{GetType().Name}: {result:f2}".Trim();
         }
     }
 }
