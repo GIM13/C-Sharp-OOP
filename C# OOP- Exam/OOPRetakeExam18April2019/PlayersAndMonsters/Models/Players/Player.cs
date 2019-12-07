@@ -8,6 +8,11 @@ namespace PlayersAndMonsters.Models.Players
 {
     public abstract class Player : IPlayer
     {
+        private readonly ICardRepository cardRepository;
+        private readonly string username;
+        private readonly bool isDead;
+        private int health;
+
         protected Player(ICardRepository cardRepository, string username, int health)
         {
             CardRepository = cardRepository;
@@ -17,7 +22,7 @@ namespace PlayersAndMonsters.Models.Players
 
         public ICardRepository CardRepository { get; }
 
-        public string Username { get;  }
+        public string Username { get; }
 
         public int Health { get ; set ; }
 
