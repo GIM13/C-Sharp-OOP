@@ -3,14 +3,13 @@ using MXGP.Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MXGP.Repositories
 {
     public abstract class Repository<T> 
         : IRepository<T>
     {  
-        public IReadOnlyCollection<T> Models { get ; private set ; }
+        public List<T> Models { get ; private set ; }
 
         public T GetByName(string name)
         {
@@ -24,9 +23,14 @@ namespace MXGP.Repositories
 
         public void Add(T model)
         {
+            if (Models == null)
+            {
+                Models = new List<T>();
+            }
+
             if (!Models.Contains(model))
             {
-                Models.ToList().Add(model);
+                Models.Add(model);
             }
         }
 

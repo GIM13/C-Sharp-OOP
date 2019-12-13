@@ -3,15 +3,20 @@ using MXGP.Models.Riders.Contracts;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MXGP.Models.Races
 {
     public class Race : IRace
     {
-        private readonly string name;
-        private readonly int laps;
-        private readonly IReadOnlyCollection<IRider> riders;
+        private string name;
+        private int laps;
+
+        public Race(string name, int laps)
+        {
+            Name = name;
+            Laps = laps;
+            Riders = new List<IRider>();
+        }
 
         public string Name
         {
@@ -23,10 +28,9 @@ namespace MXGP.Models.Races
                     throw new ArgumentNullException($"Name {value} cannot be less than 5 symbols.");
                 }
 
-                Name = value;
+                name = value;
             }
         }
-
 
         public int Laps
         {
@@ -38,11 +42,11 @@ namespace MXGP.Models.Races
                     throw new ArgumentException($"Laps cannot be less than 1.");
                 }
 
-                Laps = value;
+                laps = value;
             }
         }
 
-        public IReadOnlyCollection<IRider> Riders { get; }
+        public List<IRider> Riders { get; }
 
         public void AddRider(IRider rider)
         {
@@ -50,7 +54,7 @@ namespace MXGP.Models.Races
             {
                 throw new ArgumentNullException("Rider cannot be null.");
             }
-            else if (rider.CanParticipate)
+            else if (!rider.CanParticipate)
             {
                 throw new ArgumentException($"Rider {rider.Name} could not participate in race.");
             }
@@ -59,7 +63,7 @@ namespace MXGP.Models.Races
                 throw new ArgumentNullException($"Rider {rider.Name} is already added in {this.Name} race.");
             }
 
-            Riders.ToList().Add(rider);
+            Riders.Add(rider);
         }
     }
 }

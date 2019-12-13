@@ -1,7 +1,7 @@
 namespace Tests
 {
     using NUnit.Framework;
-    using ExtendedDatabase;
+   // using ExtendedDatabase;
     using System;
 
     public class ExtendedDatabaseTests 

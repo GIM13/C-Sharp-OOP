@@ -1,13 +1,11 @@
 ﻿using MXGP.Models.Motorcycles.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MXGP.Models.Motorcycles
 {
     public abstract class Motorcycle : IMotorcycle
     {
-        private readonly string model;
+        private string model;
         private readonly int horsePower;
         private readonly double cubicCentimeters;
 
@@ -21,16 +19,15 @@ namespace MXGP.Models.Motorcycles
         public string Model
         {
             get => model;
-           private set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value) && value.Length < 4)
                 {
                     throw new ArgumentException($"Model {value} cannot be less than 4 symbols.");
                 }
 
-                Model = value;
+                model = value;
             }
-
         }
 
         public int HorsePower { get; }

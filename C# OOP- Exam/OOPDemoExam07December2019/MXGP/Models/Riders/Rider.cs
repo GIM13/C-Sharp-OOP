@@ -1,34 +1,30 @@
 ﻿using MXGP.Models.Motorcycles.Contracts;
 using MXGP.Models.Riders.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MXGP.Models.Riders
 {
     public class Rider : IRider
     {
-        private readonly string name;
-        private readonly IMotorcycle motorcycle;
-        private readonly int numberOfWins;
-        private readonly bool canParticipate = false;
+        private string name;
+        private bool canParticipate = false;
 
         public Rider(string name)
         {
             Name = name;
         }
 
-        public string Name 
-        { 
-            get => name; 
+        public string Name
+        {
+            get => name;
             private set
             {
-                if (string.IsNullOrWhiteSpace(value) && value.Length < 5)
+                if (string.IsNullOrWhiteSpace(value) || value.Length < 5)
                 {
                     throw new ArgumentNullException($"Name {value} cannot be less than 5 symbols.");
                 }
 
-                Name = value;
+                name = value;
             }
         }
 
@@ -36,21 +32,20 @@ namespace MXGP.Models.Riders
 
         public int NumberOfWins { get; private set; }
 
-        public bool CanParticipate 
-        { 
+        public bool CanParticipate
+        {
             get => canParticipate;
             private set
             {
                 if (Motorcycle != null)
                 {
-                   CanParticipate = true;
+                    canParticipate = true;
                 }
                 else
                 {
-                    CanParticipate = false;
+                    canParticipate = false;
                 }
             }
-
         }
 
         public void AddMotorcycle(IMotorcycle motorcycle)

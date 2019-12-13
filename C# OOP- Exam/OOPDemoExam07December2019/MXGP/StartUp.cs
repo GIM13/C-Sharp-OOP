@@ -1,21 +1,21 @@
-﻿using System;
+﻿//using System;
 
 namespace MXGP
 {
-    using Models.Motorcycles;
+    //using Models.Motorcycles;
     using MXGP.Core;
 
     public static class StartUp
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var engin = new Engine();
 
             engin.Run();
 
-            Motorcycle varche = new PowerMotorcycle("12214235", 75);
+            //Motorcycle varche = new PowerMotorcycle("12214235", 75);
 
-            Console.WriteLine(varche.HorsePower);
+            //Console.WriteLine(varche.HorsePower);
         }
     }
 }
