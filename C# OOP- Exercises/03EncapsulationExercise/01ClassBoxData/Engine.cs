@@ -15,10 +15,10 @@ namespace _01ClassBoxData
                 var box = new Box(length, width, height);
 
                 Console.WriteLine($"Surface Area - {box.Area():f2}"
-                                  + Environment.NewLine +
-                                  $"Lateral Surface Area - {box.LateralSurface():f2}"
-                                  + Environment.NewLine +
-                                  $"Volume - {box.Volume():f2}");
+                      + Environment.NewLine +
+                      $"Lateral Surface Area - {box.LateralSurface():f2}"
+                      + Environment.NewLine +
+                      $"Volume - {box.Volume():f2}");
             }
             catch (Exception ex)
             {

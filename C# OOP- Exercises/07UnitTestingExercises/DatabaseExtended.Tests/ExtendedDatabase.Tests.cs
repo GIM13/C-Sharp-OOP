@@ -1,5 +1,6 @@
 namespace Tests
 {
+    using ExtendedDatabase;
     using NUnit.Framework;
    // using ExtendedDatabase;
     using System;
@@ -38,9 +39,8 @@ namespace Tests
         {
             var result = new ExtendedDatabase(person1, person2, person3, person4
                                             , person5, person6, person7, person8
-                                            , person9, person10, person11
-                                            , person12, person13, person14
-                                            , person15, person16);
+                                            , person9, person10, person11, person12
+                                            , person13, person14, person15, person16);
 
             Assert.Throws<InvalidOperationException>(() => result.Add(person17), "Array's capacity must be exactly 16 integers!");
         }
